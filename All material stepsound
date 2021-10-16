@@ -1,3 +1,12 @@
+--_Notice_--
+
+--[[
+StartPlayer/CharacterWalkSpeed = 20
+----------
+Put this script on StarterCharacterScripts
+I will update adaptive module soon , that you can feelfree to change any speed you want
+--]]
+
 --<声音库>--
 local MaterialSounds = 
 	{
