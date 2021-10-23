@@ -1,11 +1,10 @@
---_Notice_--
-
 --[[
-StartPlayer/CharacterWalkSpeed = 20
-----------
-Put this script on StarterCharacterScripts
-I will update adaptive module soon , that you can feelfree to change any speed you want
+Version 2.0.1
+Made by Aidaren - 究极挨打人
+QQ:3026297142
 --]]
+
+local PrintMessage = true
 
 --<声音库>--
 local MaterialSounds = 
@@ -66,221 +65,192 @@ local Run = "rbxasset://sounds/action_footsteps_plastic.mp3"
 --<主体>--
 Humanoid:GetPropertyChangedSignal("FloorMaterial"):Connect(function()
 	
-	
 	local FloorMaterial = Humanoid.FloorMaterial
 	local Sound = MaterialSounds[FloorMaterial]
 	
-	if FloorMaterial == Enum.Material.Asphalt then
-		RunningSound.SoundId = Sound
-		RunningSound.PlaybackSpeed = 2.3
-		RunningSound.Volume = 3
+	local function Material(Material , AdjustSpeed , Volume)
+		
+		local HumanWalkSpeed = Humanoid.WalkSpeed
+		
+		if FloorMaterial == Material then
+			RunningSound.SoundId = Sound
+			RunningSound.PlaybackSpeed = AdjustSpeed + HumanWalkSpeed / 20
+			RunningSound.Volume = Volume
+		end
+		
+		if FloorMaterial == Enum.Material.Plastic then
+			RunningSound.SoundId = Sound
+			RunningSound.PlaybackSpeed = 1.125 + HumanWalkSpeed / 20
+			RunningSound.Volume = 2
+		end
+		
+		if FloorMaterial == Enum.Material.SmoothPlastic then
+			RunningSound.SoundId = Sound
+			RunningSound.PlaybackSpeed = 1.125 + HumanWalkSpeed / 20
+			RunningSound.Volume = 2
+		end
 	end
 	
-	if FloorMaterial == Enum.Material.Fabric then
-		RunningSound.SoundId = Sound
-		RunningSound.PlaybackSpeed = 2
-		RunningSound.Volume = 2.8
+	Material(Enum.Material.Asphalt , 1.1 , 3)
+	
+	Material(Enum.Material.Fabric , 1.4 , 2.8)
+	
+	Material(Enum.Material.CrackedLava , 2.4 , 2.4)
+	
+	Material(Enum.Material.LeafyGrass , 1.2 , 2.4)
+	
+	Material(Enum.Material.Salt , 1.2 , 2.4)
+	
+	Material(Enum.Material.Snow , 1.1 , 2.4)
+	
+	Material(Enum.Material.Glacier , 1.1 , 2.4)
+	
+	Material(Enum.Material.Grass , 0.4 , 2.4)
+	
+	Material(Enum.Material.Sand , 1.6 , 2.4)
+	
+	Material(Enum.Material.Limestone , 1.6 , 2.4)
+	
+	Material(Enum.Material.Concrete , 0.5 , 2.4)
+	
+	Material(Enum.Material.Rock , 0.5 , 2.4)
+	
+	Material(Enum.Material.Marble , 0.5 , 2.4)
+	
+	Material(Enum.Material.Cobblestone , 0.5 , 2.4)
+	
+	Material(Enum.Material.Brick , 0.5 , 2.4)
+	
+	Material(Enum.Material.Foil , 0.5 , 2.4)
+	
+	Material(Enum.Material.Pebble , 0.5 , 2.4)
+	
+	Material(Enum.Material.Granite , 0.5 , 2.4)
+	
+	Material(Enum.Material.Basalt , 0.5 , 2.4)
+	
+	Material(Enum.Material.Mud , 1 , 2.5)
+	
+	Material(Enum.Material.Ground , 1 , 2.5)
+	
+	Material(Enum.Material.Wood , 0.6 , 2.5)
+	
+	Material(Enum.Material.WoodPlanks , 0.6 , 2.5)
+	
+	Material(Enum.Material.Slate , 0.4 , 2.4)
+	
+	Material(Enum.Material.Pavement , 0.5 , 2.4)
+	
+	Material(Enum.Material.Sandstone , 1 , 2.4)
+	
+	Material(Enum.Material.Ice , 2.5 , 2.4)
+	
+	Material(Enum.Material.Glass , 1.2 , 2)
+	
+	Material(Enum.Material.ForceField , 1.2 , 1)
+	
+	Material(Enum.Material.Neon , 1.2 , 1)
+	
+	Material(Enum.Material.CorrodedMetal , 1.2 , 2)
+	
+	Material(Enum.Material.DiamondPlate , 1.2 , 2)
+	
+	Material(Enum.Material.Metal , 1.2 , 2)
+	
+	if PrintMessage == true then
+			print("Material" .. tostring(Humanoid.FloorMaterial))
 	end
 	
-	if FloorMaterial == Enum.Material.CrackedLava then
-		RunningSound.SoundId = Sound
-		RunningSound.PlaybackSpeed = 3.4
-		RunningSound.Volume = 2.4
+end)
+
+Humanoid:GetPropertyChangedSignal("WalkSpeed"):Connect(function()
+	local function PlaySpeedChange(Material , StandardSpeed)
+		
+		local HumanWalkSpeed = Humanoid.WalkSpeed
+		local FloorMaterial = Humanoid.FloorMaterial
+		if PrintMessage == true then
+			print(FloorMaterial)
+		end
+		if FloorMaterial == Material then
+			RunningSound.PlaybackSpeed = StandardSpeed + HumanWalkSpeed / 20
+			if PrintMessage == true then
+				print(HumanWalkSpeed)
+			end
+		end
+		local CheckValue = RunningSound.PlaybackSpeed
+		if FloorMaterial == Enum.Material.Air then
+			RunningSound.PlaybackSpeed = CheckValue
+		end
 	end
 	
-	if FloorMaterial == Enum.Material.LeafyGrass then
-		RunningSound.SoundId = Sound
-		RunningSound.PlaybackSpeed = 2.2
-		RunningSound.Volume = 2.4
-	end
+	PlaySpeedChange(Enum.Material.Plastic , 1.125)
 	
-	if FloorMaterial == Enum.Material.Salt then
-		RunningSound.SoundId = Sound
-		RunningSound.PlaybackSpeed = 2.2
-		RunningSound.Volume = 2.4
-	end
+	PlaySpeedChange(Enum.Material.SmoothPlastic , 1.125)
 	
-	if FloorMaterial == Enum.Material.Snow then
-		RunningSound.SoundId = Sound
-		RunningSound.PlaybackSpeed = 2.1
-		RunningSound.Volume = 2.4
-	end
-	
-	if FloorMaterial == Enum.Material.Glacier then
-		RunningSound.SoundId = Sound
-		RunningSound.PlaybackSpeed = 2.1
-		RunningSound.Volume = 2.4
-	end
-	
-	
-	if FloorMaterial == Enum.Material.Grass then
-		RunningSound.SoundId = Sound
-		RunningSound.PlaybackSpeed = 1.4
-		RunningSound.Volume = 2.4
-	end
-	
-	if FloorMaterial == Enum.Material.Sand then
-		RunningSound.SoundId = Sound
-		RunningSound.PlaybackSpeed = 2.6
-		RunningSound.Volume = 2.4
-	end
-	
-	if FloorMaterial == Enum.Material.Limestone then
-		RunningSound.SoundId = Sound
-		RunningSound.PlaybackSpeed = 2.6
-		RunningSound.Volume = 2.4
-	end
-	
-	if FloorMaterial == Enum.Material.Concrete then
-		RunningSound.SoundId = Sound
-		RunningSound.PlaybackSpeed = 1.4
-		RunningSound.Volume = 2.4
-	end
-	
-	if FloorMaterial == Enum.Material.Rock then
-		RunningSound.SoundId = Sound
-		RunningSound.PlaybackSpeed = 1.4
-		RunningSound.Volume = 2.4
-	end
-	
-	if FloorMaterial == Enum.Material.Marble then
-		RunningSound.SoundId = Sound
-		RunningSound.PlaybackSpeed = 1.4
-		RunningSound.Volume = 2.4
-	end
-	
-	if FloorMaterial == Enum.Material.Cobblestone then
-		RunningSound.SoundId = Sound
-		RunningSound.PlaybackSpeed = 1.4
-		RunningSound.Volume = 2.4
-	end
-	
-	if FloorMaterial == Enum.Material.Brick then
-		RunningSound.SoundId = Sound
-		RunningSound.PlaybackSpeed = 1.4
-		RunningSound.Volume = 2.4
-	end
-	
-	if FloorMaterial == Enum.Material.Foil then
-		RunningSound.SoundId = Sound
-		RunningSound.PlaybackSpeed = 1.4
-		RunningSound.Volume = 2.4
-	end
-	
-	if FloorMaterial == Enum.Material.Pebble then
-		RunningSound.SoundId = Sound
-		RunningSound.PlaybackSpeed = 1.4
-		RunningSound.Volume = 2.4
-	end
-	
-	if FloorMaterial == Enum.Material.Granite then
-		RunningSound.SoundId = Sound
-		RunningSound.PlaybackSpeed = 1.4
-		RunningSound.Volume = 2.4
-	end
-	
-	if FloorMaterial == Enum.Material.Basalt then
-		RunningSound.SoundId = Sound
-		RunningSound.PlaybackSpeed = 1.4
-		RunningSound.Volume = 2.4
-	end
-	
-	if FloorMaterial == Enum.Material.Mud then
-		RunningSound.SoundId = Sound
-		RunningSound.PlaybackSpeed = 2
-		RunningSound.Volume = 2.5
-	end
-	
-	if FloorMaterial == Enum.Material.Ground then
-		RunningSound.SoundId = Sound
-		RunningSound.PlaybackSpeed = 2
-		RunningSound.Volume = 2.5
-	end
-	
-	if FloorMaterial == Enum.Material.Wood then
-		RunningSound.SoundId = Sound
-		RunningSound.PlaybackSpeed = 1.6
-		RunningSound.Volume = 2.5
-	end
-	
-	if FloorMaterial == Enum.Material.WoodPlanks then
-		RunningSound.SoundId = Sound
-		RunningSound.PlaybackSpeed = 1.6
-		RunningSound.Volume = 2.5
-	end
-	
-	if FloorMaterial == Enum.Material.Slate then
-		RunningSound.SoundId = Sound
-		RunningSound.PlaybackSpeed = 1.4
-		RunningSound.Volume = 2.4
-	end
-	
-	if FloorMaterial == Enum.Material.Pavement then
-		RunningSound.SoundId = Sound
-		RunningSound.PlaybackSpeed = 1.5
-		RunningSound.Volume = 2.4
-	end
-	
-	if FloorMaterial == Enum.Material.Sandstone then
-		RunningSound.SoundId = Sound
-		RunningSound.PlaybackSpeed = 2
-		RunningSound.Volume = 2.4
-	end
-	
-	if FloorMaterial == Enum.Material.Ice then
-		RunningSound.SoundId = Sound
-		RunningSound.PlaybackSpeed = 3.5
-		RunningSound.Volume = 2.4
-	end
-	
-	if FloorMaterial == Enum.Material.Plastic then
-		RunningSound.SoundId = Run
-		RunningSound.PlaybackSpeed = 2.4
-		RunningSound.Volume = 2
-	end
-	
-	if FloorMaterial == Enum.Material.SmoothPlastic then
-		RunningSound.SoundId = Run
-		RunningSound.PlaybackSpeed = 2.4
-		RunningSound.Volume = 2
-	end
-	
-	if FloorMaterial == Enum.Material.Glass then
-		RunningSound.SoundId = Sound
-		RunningSound.PlaybackSpeed = 2.2
-		RunningSound.Volume = 2
-	end
-	
-	if FloorMaterial == Enum.Material.ForceField then
-		RunningSound.SoundId = Sound
-		RunningSound.PlaybackSpeed = 2.2
-		RunningSound.Volume = 1
-	end
-	
-	if FloorMaterial == Enum.Material.Neon then
-		RunningSound.SoundId = Sound
-		RunningSound.PlaybackSpeed = 2.2
-		RunningSound.Volume = 1
-	end
-	
-	if FloorMaterial == Enum.Material.CorrodedMetal then
-		RunningSound.SoundId = Sound
-		RunningSound.PlaybackSpeed = 2.2
-		RunningSound.Volume = 2
-	end
-	
-	if FloorMaterial == Enum.Material.DiamondPlate then
-		RunningSound.SoundId = Sound
-		RunningSound.PlaybackSpeed = 2.2
-		RunningSound.Volume = 2
-	end
-	
-	if FloorMaterial == Enum.Material.Metal then
-		RunningSound.SoundId = Sound
-		RunningSound.PlaybackSpeed = 2.2
-		RunningSound.Volume = 2
-	end
-	
-	print("Material" .. tostring(Humanoid.FloorMaterial))
+	PlaySpeedChange(Enum.Material.Asphalt , 1.1)
+
+	PlaySpeedChange(Enum.Material.Fabric , 1.4)
+
+	PlaySpeedChange(Enum.Material.CrackedLava , 2.4)
+
+	PlaySpeedChange(Enum.Material.LeafyGrass , 1.2)
+
+	PlaySpeedChange(Enum.Material.Salt , 1.2)
+
+	PlaySpeedChange(Enum.Material.Snow , 1.1)
+
+	PlaySpeedChange(Enum.Material.Glacier , 1.1)
+
+	PlaySpeedChange(Enum.Material.Grass , 0.4)
+
+	PlaySpeedChange(Enum.Material.Sand , 1.6)
+
+	PlaySpeedChange(Enum.Material.Limestone , 1.6)
+
+	PlaySpeedChange(Enum.Material.Concrete , 0.5)
+
+	PlaySpeedChange(Enum.Material.Rock , 0.5)
+
+	PlaySpeedChange(Enum.Material.Marble , 0.5)
+
+	PlaySpeedChange(Enum.Material.Cobblestone , 0.5)
+
+	PlaySpeedChange(Enum.Material.Brick , 0.5)
+
+	PlaySpeedChange(Enum.Material.Foil , 0.5)
+
+	PlaySpeedChange(Enum.Material.Pebble , 0.5)
+
+	PlaySpeedChange(Enum.Material.Granite , 0.5)
+
+	PlaySpeedChange(Enum.Material.Basalt , 0.5)
+
+	PlaySpeedChange(Enum.Material.Mud , 1)
+
+	PlaySpeedChange(Enum.Material.Ground , 1)
+
+	PlaySpeedChange(Enum.Material.Wood , 0.6)
+
+	PlaySpeedChange(Enum.Material.WoodPlanks , 0.6)
+
+	PlaySpeedChange(Enum.Material.Slate , 0.4)
+
+	PlaySpeedChange(Enum.Material.Pavement , 0.5)
+
+	PlaySpeedChange(Enum.Material.Sandstone , 1)
+
+	PlaySpeedChange(Enum.Material.Ice , 2.5)
+
+	PlaySpeedChange(Enum.Material.Glass , 1.2)
+
+	PlaySpeedChange(Enum.Material.ForceField , 1.2)
+
+	PlaySpeedChange(Enum.Material.Neon , 1.2)
+
+	PlaySpeedChange(Enum.Material.CorrodedMetal , 1.2)
+
+	PlaySpeedChange(Enum.Material.DiamondPlate , 1.2)
+
+	PlaySpeedChange(Enum.Material.Metal , 1.2)
 	
 end)
