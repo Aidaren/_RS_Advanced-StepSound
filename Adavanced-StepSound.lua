@@ -1,5 +1,5 @@
 --[[
-Version 2.0
+Version 2.1
 Made by Aidaren - 究极挨打人
 QQ:3026297142
 --]]
@@ -79,13 +79,13 @@ Humanoid:GetPropertyChangedSignal("FloorMaterial"):Connect(function()
 		end
 		
 		if FloorMaterial == Enum.Material.Plastic then
-			RunningSound.SoundId = Sound
+			RunningSound.SoundId = Run
 			RunningSound.PlaybackSpeed = 1.125 + HumanWalkSpeed / 20
 			RunningSound.Volume = 2
 		end
 		
 		if FloorMaterial == Enum.Material.SmoothPlastic then
-			RunningSound.SoundId = Sound
+			RunningSound.SoundId = Run
 			RunningSound.PlaybackSpeed = 1.125 + HumanWalkSpeed / 20
 			RunningSound.Volume = 2
 		end
