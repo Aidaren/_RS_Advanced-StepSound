@@ -29,8 +29,6 @@ local MaterialSounds =
 		[Enum.Material.Pebble] = "rbxassetid://7749413376",
 		[Enum.Material.Foil] = "rbxassetid://7749413376",
 		[Enum.Material.Marble] = "rbxassetid://7749413376",
-		[Enum.Material.Plastic] = "	rbxasset://sounds/action_footsteps_plastic.mp3",
-		[Enum.Material.SmoothPlastic] = "rbxasset://sounds/action_footsteps_plastic.mp3",
 		
 		[Enum.Material.Glass] = "rbxassetid://7751159454",
 		[Enum.Material.ForceField] = "rbxassetid://7751159454",
