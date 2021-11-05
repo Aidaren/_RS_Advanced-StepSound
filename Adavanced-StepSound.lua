@@ -1,5 +1,5 @@
 --[[
-Version 2.0.1
+Version 2.0.2
 Made by Aidaren - 究极挨打人
 QQ:3026297142
 --]]
@@ -47,8 +47,8 @@ local MaterialSounds =
 		[Enum.Material.Limestone] = "rbxassetid://7744855362",
 		[Enum.Material.Sand] = "rbxassetid://7744855362",
 		
-		[Enum.Material.WoodPlanks] = "rbxassetid://7750069861",
-		[Enum.Material.Wood] = "rbxassetid://7750069861"
+		[Enum.Material.WoodPlanks] = "rbxassetid://7908744619",
+		[Enum.Material.Wood] = "rbxassetid://7908744619"
 		--<能力有限，这些都是同样的声音>--
 
 
@@ -59,6 +59,8 @@ local Humanoid = script.Parent:WaitForChild("Humanoid")
 local FootStepSound = script.Parent:WaitForChild("HumanoidRootPart")
 local RunningSound = FootStepSound:WaitForChild("Running")
 local Run = "rbxasset://sounds/action_footsteps_plastic.mp3"
+
+local StoneClass = 0.45
 
 --<主体>--
 Humanoid:GetPropertyChangedSignal("FloorMaterial"):Connect(function()
@@ -78,14 +80,14 @@ Humanoid:GetPropertyChangedSignal("FloorMaterial"):Connect(function()
 		
 		if FloorMaterial == Enum.Material.Plastic then
 			RunningSound.SoundId = Run
-			RunningSound.PlaybackSpeed = 1.125 + HumanWalkSpeed / 20
-			RunningSound.Volume = 2
+			RunningSound.PlaybackSpeed = 1.25 + HumanWalkSpeed / 20
+			RunningSound.Volume = 1.8
 		end
 		
 		if FloorMaterial == Enum.Material.SmoothPlastic then
 			RunningSound.SoundId = Run
-			RunningSound.PlaybackSpeed = 1.125 + HumanWalkSpeed / 20
-			RunningSound.Volume = 2
+			RunningSound.PlaybackSpeed = 1.25 + HumanWalkSpeed / 20
+			RunningSound.Volume = 1.8
 		end
 	end
 	
@@ -109,31 +111,31 @@ Humanoid:GetPropertyChangedSignal("FloorMaterial"):Connect(function()
 	
 	Material(Enum.Material.Limestone , 1.6 , 2.4)
 	
-	Material(Enum.Material.Concrete , 0.5 , 2.4)
+	Material(Enum.Material.Concrete , StoneClass , 2.4)
 	
-	Material(Enum.Material.Rock , 0.5 , 2.4)
+	Material(Enum.Material.Rock , StoneClass , 2.4)
 	
-	Material(Enum.Material.Marble , 0.5 , 2.4)
+	Material(Enum.Material.Marble , StoneClass , 2.4)
 	
-	Material(Enum.Material.Cobblestone , 0.5 , 2.4)
+	Material(Enum.Material.Cobblestone , StoneClass , 2.4)
 	
-	Material(Enum.Material.Brick , 0.5 , 2.4)
+	Material(Enum.Material.Brick , StoneClass , 2.4)
 	
-	Material(Enum.Material.Foil , 0.5 , 2.4)
+	Material(Enum.Material.Foil , StoneClass , 2.4)
 	
-	Material(Enum.Material.Pebble , 0.5 , 2.4)
+	Material(Enum.Material.Pebble , StoneClass , 2.4)
 	
-	Material(Enum.Material.Granite , 0.5 , 2.4)
+	Material(Enum.Material.Granite , StoneClass , 2.4)
 	
-	Material(Enum.Material.Basalt , 0.5 , 2.4)
+	Material(Enum.Material.Basalt , StoneClass , 2.4)
 	
 	Material(Enum.Material.Mud , 1 , 2.5)
 	
 	Material(Enum.Material.Ground , 1 , 2.5)
 	
-	Material(Enum.Material.Wood , 0.6 , 2.5)
+	Material(Enum.Material.Wood , 1.25 , 4)
 	
-	Material(Enum.Material.WoodPlanks , 0.6 , 2.5)
+	Material(Enum.Material.WoodPlanks , 1.25 , 4)
 	
 	Material(Enum.Material.Slate , 0.4 , 2.4)
 	
@@ -156,7 +158,7 @@ Humanoid:GetPropertyChangedSignal("FloorMaterial"):Connect(function()
 	Material(Enum.Material.Metal , 1.2 , 2)
 	
 	if PrintMessage == true then
-			print("Material" .. tostring(Humanoid.FloorMaterial))
+		print("Material" .. tostring(Humanoid.FloorMaterial))
 	end
 	
 end)
@@ -181,9 +183,9 @@ Humanoid:GetPropertyChangedSignal("WalkSpeed"):Connect(function()
 		end
 	end
 	
-	PlaySpeedChange(Enum.Material.Plastic , 1.125)
+	PlaySpeedChange(Enum.Material.Plastic , 1.25)
 	
-	PlaySpeedChange(Enum.Material.SmoothPlastic , 1.125)
+	PlaySpeedChange(Enum.Material.SmoothPlastic , 1.25)
 	
 	PlaySpeedChange(Enum.Material.Asphalt , 1.1)
 
@@ -205,31 +207,31 @@ Humanoid:GetPropertyChangedSignal("WalkSpeed"):Connect(function()
 
 	PlaySpeedChange(Enum.Material.Limestone , 1.6)
 
-	PlaySpeedChange(Enum.Material.Concrete , 0.5)
+	PlaySpeedChange(Enum.Material.Concrete , StoneClass)
 
-	PlaySpeedChange(Enum.Material.Rock , 0.5)
+	PlaySpeedChange(Enum.Material.Rock , StoneClass)
 
-	PlaySpeedChange(Enum.Material.Marble , 0.5)
+	PlaySpeedChange(Enum.Material.Marble , StoneClass)
 
-	PlaySpeedChange(Enum.Material.Cobblestone , 0.5)
+	PlaySpeedChange(Enum.Material.Cobblestone , StoneClass)
 
-	PlaySpeedChange(Enum.Material.Brick , 0.5)
+	PlaySpeedChange(Enum.Material.Brick , StoneClass)
 
-	PlaySpeedChange(Enum.Material.Foil , 0.5)
+	PlaySpeedChange(Enum.Material.Foil , StoneClass)
 
-	PlaySpeedChange(Enum.Material.Pebble , 0.5)
+	PlaySpeedChange(Enum.Material.Pebble , StoneClass)
 
-	PlaySpeedChange(Enum.Material.Granite , 0.5)
+	PlaySpeedChange(Enum.Material.Granite , StoneClass)
 
-	PlaySpeedChange(Enum.Material.Basalt , 0.5)
+	PlaySpeedChange(Enum.Material.Basalt , StoneClass)
 
 	PlaySpeedChange(Enum.Material.Mud , 1)
 
 	PlaySpeedChange(Enum.Material.Ground , 1)
 
-	PlaySpeedChange(Enum.Material.Wood , 0.6)
+	PlaySpeedChange(Enum.Material.Wood , 1.25)
 
-	PlaySpeedChange(Enum.Material.WoodPlanks , 0.6)
+	PlaySpeedChange(Enum.Material.WoodPlanks , 1.25)
 
 	PlaySpeedChange(Enum.Material.Slate , 0.4)
 
