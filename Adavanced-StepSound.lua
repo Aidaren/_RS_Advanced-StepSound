@@ -1,5 +1,8 @@
 --[[
 Version 2.0.3
+Put this script on/将此脚本放在：
+StarterPlayer\StarterCharacterScript |-|-or-|-| StarterPlayer\StarterPlayerScript
+
 Made by Aidaren - 究极挨打人
 QQ:3026297142
 --]]
