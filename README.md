@@ -9,7 +9,7 @@
 * **在速度更改后保持当前脚步声所有参数**
 * **高度自定义**
 
-## Chinese Introduction/Chinese Language
+## 英文介绍/English Language
 **Congratulations on finding this gem of a script that is all about the real game experience!  
 This script changes the sound of your footsteps by judging different terrain and is highly customizable!**
 ### **Script Features:**
