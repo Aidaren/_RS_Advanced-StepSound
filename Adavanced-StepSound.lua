@@ -1,5 +1,5 @@
 --[[
-Version 2.0.3
+Version 2.0.4
 Put this script on/将此脚本放在：
 StarterPlayer\StarterCharacterScript |-|-or-|-| StarterPlayer\StarterPlayerScript
 
