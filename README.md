@@ -1,4 +1,4 @@
-# **Advanced StepSound (All material stepsound)**
+# **Advanced StepSound (All material stepsound) | Version - 2.0.3**
 
 ## 中文简介/Chinese Language
 **恭喜你发现了这个宝藏脚本，此脚本的宗旨皆在为真实的游戏体验所服务  
